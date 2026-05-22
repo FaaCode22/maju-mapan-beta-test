@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7ba862e4989c032f55432426865eea6e",
+    "content-hash": "36793882908b6cbdd344b5a4840231db",
     "packages": [
         {
             "name": "brick/math",
@@ -643,16 +643,16 @@
         },
         {
             "name": "guzzlehttp/guzzle",
-            "version": "7.10.3",
+            "version": "7.10.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/guzzle.git",
-                "reference": "47ba23c7a55247e2e1b7407aca90e9bbed0d9d86"
+                "reference": "aed36fd5fb4844f284252a999d9abf35d3a9a1ae"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/47ba23c7a55247e2e1b7407aca90e9bbed0d9d86",
-                "reference": "47ba23c7a55247e2e1b7407aca90e9bbed0d9d86",
+                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/aed36fd5fb4844f284252a999d9abf35d3a9a1ae",
+                "reference": "aed36fd5fb4844f284252a999d9abf35d3a9a1ae",
                 "shasum": ""
             },
             "require": {
@@ -750,7 +750,7 @@
             ],
             "support": {
                 "issues": "https://github.com/guzzle/guzzle/issues",
-                "source": "https://github.com/guzzle/guzzle/tree/7.10.3"
+                "source": "https://github.com/guzzle/guzzle/tree/7.10.2"
             },
             "funding": [
                 {
@@ -766,20 +766,20 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2026-05-20T22:59:19+00:00"
+            "time": "2026-05-20T11:58:52+00:00"
         },
         {
             "name": "guzzlehttp/promises",
-            "version": "2.4.1",
+            "version": "2.3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/promises.git",
-                "reference": "09e8a212562fb1fb6a512c4156ed71525969d6c2"
+                "reference": "d2d8dfae4757f384d630fdffc2d8d6618d8f4c5e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/promises/zipball/09e8a212562fb1fb6a512c4156ed71525969d6c2",
-                "reference": "09e8a212562fb1fb6a512c4156ed71525969d6c2",
+                "url": "https://api.github.com/repos/guzzle/promises/zipball/d2d8dfae4757f384d630fdffc2d8d6618d8f4c5e",
+                "reference": "d2d8dfae4757f384d630fdffc2d8d6618d8f4c5e",
                 "shasum": ""
             },
             "require": {
@@ -833,7 +833,7 @@
             ],
             "support": {
                 "issues": "https://github.com/guzzle/promises/issues",
-                "source": "https://github.com/guzzle/promises/tree/2.4.1"
+                "source": "https://github.com/guzzle/promises/tree/2.3.1"
             },
             "funding": [
                 {
@@ -849,7 +849,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2026-05-20T22:57:30+00:00"
+            "time": "2026-05-19T18:30:48+00:00"
         },
         {
             "name": "guzzlehttp/psr7",
@@ -7161,16 +7161,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "12.5.26",
+            "version": "12.5.25",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "e78c9ad74f73fd3642a23e65ace83746dc8df26d"
+                "reference": "792c2980442dfce319226b88fa845b8b6de3b333"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/e78c9ad74f73fd3642a23e65ace83746dc8df26d",
-                "reference": "e78c9ad74f73fd3642a23e65ace83746dc8df26d",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/792c2980442dfce319226b88fa845b8b6de3b333",
+                "reference": "792c2980442dfce319226b88fa845b8b6de3b333",
                 "shasum": ""
             },
             "require": {
@@ -7189,15 +7189,15 @@
                 "phpunit/php-invoker": "^6.0.0",
                 "phpunit/php-text-template": "^5.0.0",
                 "phpunit/php-timer": "^8.0.0",
-                "sebastian/cli-parser": "^4.2.1",
-                "sebastian/comparator": "^7.1.8",
+                "sebastian/cli-parser": "^4.2.0",
+                "sebastian/comparator": "^7.1.6",
                 "sebastian/diff": "^7.0.0",
-                "sebastian/environment": "^8.1.1",
-                "sebastian/exporter": "^7.0.3",
+                "sebastian/environment": "^8.1.0",
+                "sebastian/exporter": "^7.0.2",
                 "sebastian/global-state": "^8.0.2",
                 "sebastian/object-enumerator": "^7.0.0",
                 "sebastian/recursion-context": "^7.0.1",
-                "sebastian/type": "^6.0.4",
+                "sebastian/type": "^6.0.3",
                 "sebastian/version": "^6.0.0",
                 "staabm/side-effects-detector": "^1.0.5"
             },
@@ -7239,7 +7239,7 @@
             "support": {
                 "issues": "https://github.com/sebastianbergmann/phpunit/issues",
                 "security": "https://github.com/sebastianbergmann/phpunit/security/policy",
-                "source": "https://github.com/sebastianbergmann/phpunit/tree/12.5.26"
+                "source": "https://github.com/sebastianbergmann/phpunit/tree/12.5.25"
             },
             "funding": [
                 {
@@ -7247,7 +7247,7 @@
                     "type": "other"
                 }
             ],
-            "time": "2026-05-21T12:36:53+00:00"
+            "time": "2026-05-13T03:56:57+00:00"
         },
         {
             "name": "sebastian/cli-parser",
@@ -7320,16 +7320,16 @@
         },
         {
             "name": "sebastian/comparator",
-            "version": "7.1.8",
+            "version": "7.1.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/comparator.git",
-                "reference": "7c65c1e79836812819705b473a90c12399542485"
+                "reference": "0ed818fb2660fd80d71fbb982c80153bba8da7ef"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/comparator/zipball/7c65c1e79836812819705b473a90c12399542485",
-                "reference": "7c65c1e79836812819705b473a90c12399542485",
+                "url": "https://api.github.com/repos/sebastianbergmann/comparator/zipball/0ed818fb2660fd80d71fbb982c80153bba8da7ef",
+                "reference": "0ed818fb2660fd80d71fbb982c80153bba8da7ef",
                 "shasum": ""
             },
             "require": {
@@ -7388,7 +7388,7 @@
             "support": {
                 "issues": "https://github.com/sebastianbergmann/comparator/issues",
                 "security": "https://github.com/sebastianbergmann/comparator/security/policy",
-                "source": "https://github.com/sebastianbergmann/comparator/tree/7.1.8"
+                "source": "https://github.com/sebastianbergmann/comparator/tree/7.1.7"
             },
             "funding": [
                 {
@@ -7408,7 +7408,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2026-05-21T04:45:25+00:00"
+            "time": "2026-05-20T11:50:17+00:00"
         },
         {
             "name": "sebastian/complexity",
@@ -7537,23 +7537,23 @@
         },
         {
             "name": "sebastian/environment",
-            "version": "8.1.1",
+            "version": "8.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/environment.git",
-                "reference": "334bc42a97ec6fc44c59001dc3467e0d739a20e9"
+                "reference": "b121608b28a13f721e76ffbbd386d08eff58f3f6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/environment/zipball/334bc42a97ec6fc44c59001dc3467e0d739a20e9",
-                "reference": "334bc42a97ec6fc44c59001dc3467e0d739a20e9",
+                "url": "https://api.github.com/repos/sebastianbergmann/environment/zipball/b121608b28a13f721e76ffbbd386d08eff58f3f6",
+                "reference": "b121608b28a13f721e76ffbbd386d08eff58f3f6",
                 "shasum": ""
             },
             "require": {
                 "php": ">=8.3"
             },
             "require-dev": {
-                "phpunit/phpunit": "^12.5.25"
+                "phpunit/phpunit": "^12.0"
             },
             "suggest": {
                 "ext-posix": "*"
@@ -7589,7 +7589,7 @@
             "support": {
                 "issues": "https://github.com/sebastianbergmann/environment/issues",
                 "security": "https://github.com/sebastianbergmann/environment/security/policy",
-                "source": "https://github.com/sebastianbergmann/environment/tree/8.1.1"
+                "source": "https://github.com/sebastianbergmann/environment/tree/8.1.0"
             },
             "funding": [
                 {
@@ -7609,7 +7609,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2026-05-21T08:45:32+00:00"
+            "time": "2026-04-15T12:13:01+00:00"
         },
         {
             "name": "sebastian/exporter",
@@ -8267,7 +8267,7 @@
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
-        "php": "^8.4"
+        "php": "^8.3"
     },
     "platform-dev": {},
     "plugin-api-version": "2.6.0"

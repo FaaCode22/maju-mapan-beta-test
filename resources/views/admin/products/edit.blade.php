@@ -11,3 +11,30 @@
     <button type="submit" class="rounded-xl bg-brand-500 px-8 py-3 font-semibold text-white hover:bg-brand-600">Perbarui</button>
 </form>
 @endsection
+
+@push('scripts')
+<script>
+function deleteImage(url, btn) {
+    if (!confirm('Hapus gambar?')) return;
+
+    const form = document.createElement('form');
+    form.method = 'POST';
+    form.action = url;
+
+    const csrf = document.createElement('input');
+    csrf.type = 'hidden';
+    csrf.name = '_token';
+    csrf.value = '{{ csrf_token() }}';
+
+    const method = document.createElement('input');
+    method.type = 'hidden';
+    method.name = '_method';
+    method.value = 'DELETE';
+
+    form.appendChild(csrf);
+    form.appendChild(method);
+    document.body.appendChild(form);
+    form.submit();
+}
+</script>
+@endpush

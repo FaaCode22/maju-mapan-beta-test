@@ -55,13 +55,16 @@
         @if(isset($product) && $product->images->count())
             <div class="mt-4 flex flex-wrap gap-3">
                 @foreach($product->images as $image)
-                    <div class="relative">
-                        <img src="{{ $image->url }}" class="h-20 w-20 rounded-lg object-cover">
-                        <form action="{{ route('admin.product-images.destroy', $image) }}" method="POST" class="absolute -right-2 -top-2">
-                            @csrf @method('DELETE')
-                            <button type="submit" class="rounded-full bg-red-500 px-2 text-xs text-white" onclick="return confirm('Hapus gambar?')">×</button>
-                        </form>
-                    </div>
+            {{-- SESUDAH --}}
+            <div class="relative">
+            <img src="{{ $image->url }}" class="h-20 w-20 rounded-lg object-cover">
+            <button
+                type="button"
+                class="absolute -right-2 -top-2 rounded-full bg-red-500 px-2 text-xs text-white"
+                onclick="deleteImage('{{ route('admin.product-images.destroy', $image) }}', this)">
+        ×
+            </button>
+    </div>
                 @endforeach
             </div>
         @endif
