@@ -6,7 +6,7 @@
 @include('partials.page-header', [
     'title' => 'Katalog Produk',
     'subtitle' => 'Temukan sensor yang sesuai kebutuhan Anda',
-    'image' => config('site.headers.products'),
+    'image' => 'products',
 ])
 
 <section class="py-12">

@@ -6,7 +6,7 @@
 @include('partials.page-header', [
     'title' => 'Hubungi Kami',
     'subtitle' => 'Kami siap membantu Anda',
-    'image' => config('site.headers.contact'),
+    'image' => 'contact',
 ])
 
 <section class="py-20">

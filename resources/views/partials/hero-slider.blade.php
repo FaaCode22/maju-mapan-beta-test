@@ -1,5 +1,6 @@
 @php
-    $slides = config('site.banners');
+    $slidesRaw = \App\Models\Setting::get('banners');
+    $slides = $slidesRaw ? json_decode($slidesRaw, true) : config('site.banners');
 @endphp
 
 <section class="relative w-full overflow-hidden" style="height: calc(100dvh - var(--navbar-height, 0px))" x-data="heroSlider({{ count($slides) }})" x-init="start()">
@@ -36,13 +37,6 @@
             </div>
         </div>
     @endforeach
-
-    <button @click="prev()" class="absolute left-4 top-1/2 z-20 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full bg-white/20 text-white backdrop-blur-sm transition hover:bg-white/40 sm:left-6" aria-label="Slide sebelumnya">
-        <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
-    </button>
-    <button @click="next()" class="absolute right-4 top-1/2 z-20 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full bg-white/20 text-white backdrop-blur-sm transition hover:bg-white/40 sm:right-6" aria-label="Slide berikutnya">
-        <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-    </button>
 
     <div class="absolute bottom-8 left-1/2 z-20 flex -translate-x-1/2 gap-2">
         @foreach($slides as $index => $slide)

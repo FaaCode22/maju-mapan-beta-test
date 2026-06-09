@@ -19,16 +19,21 @@ Route::get('/kontak', [ContactController::class, 'index'])->name('contact');
 Route::post('/kontak', [ContactController::class, 'store'])->name('contact.store');
 
 Route::prefix('admin')->name('admin.')->group(function () {
-    Route::middleware('guest')->group(function () {
-        Route::get('/login', [AdminAuthController::class, 'showLogin'])->name('login');
-        Route::post('/login', [AdminAuthController::class, 'login']);
-    });
+Route::middleware('guest')->group(function () {
+    Route::get('/login', [AdminAuthController::class, 'showLogin'])->name('login');
+    Route::post('/login', [AdminAuthController::class, 'login']);
+});
 
-    Route::middleware('auth')->group(function () {
-        Route::post('/logout', [AdminAuthController::class, 'logout'])->name('logout');
-        Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
-        Route::resource('products', AdminProductController::class)->except(['show']);
-        Route::delete('product-images/{image}', [AdminProductController::class, 'destroyImage'])->name('product-images.destroy');
-        Route::resource('categories', AdminCategoryController::class)->except(['show']);
-    });
+
+Route::middleware('auth')->group(function () {
+    Route::post('/logout', [AdminAuthController::class, 'logout'])->name('logout');
+    Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
+    Route::resource('products', AdminProductController::class)->except(['show']);
+    Route::delete('product-images/{image}', [AdminProductController::class, 'destroyImage'])->name('product-images.destroy');
+    Route::resource('categories', AdminCategoryController::class)->except(['show']);
+    Route::get('/banners/edit', [App\Http\Controllers\Admin\BannerController::class, 'edit'])->name('banners.edit');
+    Route::put('/banners', [App\Http\Controllers\Admin\BannerController::class, 'update'])->name('banners.update');
+    Route::get('/site/edit', [App\Http\Controllers\Admin\SiteController::class, 'edit'])->name('site.edit');
+    Route::put('/site', [App\Http\Controllers\Admin\SiteController::class, 'update'])->name('site.update');
+});
 });

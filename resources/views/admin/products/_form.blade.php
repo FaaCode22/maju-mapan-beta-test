@@ -42,16 +42,22 @@
         <label class="block font-medium mb-2">Manfaat</label>
         <textarea name="benefits" rows="4" class="w-full rounded-xl border border-gray-200 px-4 py-3">{{ old('benefits', $product->benefits ?? '') }}</textarea>
     </div>
-    <div>
-        <label class="block font-medium mb-2">Thumbnail</label>
-        <input type="file" name="thumbnail" accept="image/*" class="w-full">
-        @if(isset($product) && $product->thumbnail)
-            <img src="{{ $product->thumbnail_url }}" class="mt-2 h-24 rounded-lg object-cover">
-        @endif
-    </div>
-    <div>
-        <label class="block font-medium mb-2">Galeri (multiple)</label>
-        <input type="file" name="images[]" accept="image/*" multiple class="w-full">
+<div>
+    <label class="block font-medium mb-2">Thumbnail</label>
+    <input type="file" name="thumbnail" accept="image/*" class="w-full">
+    <input type="text" name="thumbnail_url" placeholder="Atau masukkan link foto (https://...)"
+           value="{{ old('thumbnail_url') }}"
+           class="mt-2 w-full rounded-xl border border-gray-200 px-4 py-3">
+    @if(isset($product) && $product->thumbnail)
+        <img src="{{ $product->thumbnail_url }}" class="mt-2 h-24 rounded-lg object-cover">
+    @endif
+</div>
+<div>
+    <label class="block font-medium mb-2">Galeri (multiple)</label>
+    <input type="file" name="images[]" accept="image/*" multiple class="w-full">
+    <input type="text" name="image_urls" placeholder="Atau masukkan link foto, pisah dengan koma (https://... , https://...)"
+           value="{{ old('image_urls') }}"
+           class="mt-2 w-full rounded-xl border border-gray-200 px-4 py-3">
         @if(isset($product) && $product->images->count())
             <div class="mt-4 flex flex-wrap gap-3">
                 @foreach($product->images as $image)

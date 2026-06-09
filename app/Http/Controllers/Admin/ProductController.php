@@ -61,19 +61,19 @@ class ProductController extends Controller
 
     public function destroy(Product $product): RedirectResponse
     {
-        // Hapus thumbnail dari public/images/products/thumbnails/
-        if ($product->thumbnail) {
+        if ($product->thumbnail && !str_starts_with($product->thumbnail, 'http')) {
             $thumbPath = public_path($product->thumbnail);
             if (file_exists($thumbPath)) {
                 unlink($thumbPath);
             }
         }
 
-        // Hapus semua foto galeri dari public/images/products/gallery/
         foreach ($product->images as $image) {
-            $imagePath = public_path($image->path);
-            if (file_exists($imagePath)) {
-                unlink($imagePath);
+            if (!str_starts_with($image->path, 'http')) {
+                $imagePath = public_path($image->path);
+                if (file_exists($imagePath)) {
+                    unlink($imagePath);
+                }
             }
         }
 
@@ -85,9 +85,11 @@ class ProductController extends Controller
 
     public function destroyImage(ProductImage $image): RedirectResponse
     {
-        $imagePath = public_path($image->path);
-        if (file_exists($imagePath)) {
-            unlink($imagePath);
+        if (!str_starts_with($image->path, 'http')) {
+            $imagePath = public_path($image->path);
+            if (file_exists($imagePath)) {
+                unlink($imagePath);
+            }
         }
 
         $image->delete();
@@ -107,7 +109,6 @@ class ProductController extends Controller
         $data['slug']        = $data['slug'] ?: Str::slug($data['name']);
         $data['is_featured'] = $request->boolean('is_featured');
 
-        // Jangan ubah slug kalau tidak berubah (hindari unique-constraint error)
         if ($product && $data['slug'] === $product->slug) {
             unset($data['slug']);
         }
@@ -115,54 +116,60 @@ class ProductController extends Controller
         return $data;
     }
 
-    /**
-     * Simpan thumbnail ke public/images/products/thumbnails/
-     * Path yang disimpan di DB: images/products/thumbnails/namafile.jpg
-     */
     private function handleThumbnail(ProductRequest $request, Product $product): void
     {
+        // Pakai link URL
+        if ($request->filled('thumbnail_url')) {
+            $product->update(['thumbnail' => $request->thumbnail_url]);
+            return;
+        }
+
+        // Pakai upload file
         if (! $request->hasFile('thumbnail')) {
             return;
         }
 
-        // Hapus thumbnail lama kalau ada
-        if ($product->thumbnail) {
+        if ($product->thumbnail && !str_starts_with($product->thumbnail, 'http')) {
             $oldPath = public_path($product->thumbnail);
             if (file_exists($oldPath)) {
                 unlink($oldPath);
             }
         }
 
-        $file      = $request->file('thumbnail');
-        $filename  = time() . '_' . Str::slug(pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME))
-                     . '.' . $file->getClientOriginalExtension();
-        $destDir   = public_path('images/products/thumbnails');
+        $file     = $request->file('thumbnail');
+        $filename = time() . '_' . Str::slug(pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME))
+                    . '.' . $file->getClientOriginalExtension();
+        $destDir  = public_path('images/products/thumbnails');
 
-        // Pastikan folder ada
         if (! is_dir($destDir)) {
             mkdir($destDir, 0755, true);
         }
 
         $file->move($destDir, $filename);
-
-        // Simpan path relatif dari public/ — ini yang dipakai asset() di model
         $product->update(['thumbnail' => 'images/products/thumbnails/' . $filename]);
     }
 
-    /**
-     * Simpan foto galeri ke public/images/products/gallery/
-     * Path yang disimpan di DB: images/products/gallery/namafile.jpg
-     */
     private function handleImages(ProductRequest $request, Product $product): void
     {
+        $sortOrder = $product->images()->max('sort_order') ?? 0;
+
+        // Pakai link URL (pisah dengan koma)
+        if ($request->filled('image_urls')) {
+            $urls = array_filter(array_map('trim', explode(',', $request->image_urls)));
+            foreach ($urls as $url) {
+                $product->images()->create([
+                    'path'       => $url,
+                    'sort_order' => ++$sortOrder,
+                ]);
+            }
+        }
+
+        // Pakai upload file
         if (! $request->hasFile('images')) {
             return;
         }
 
-        $sortOrder = $product->images()->max('sort_order') ?? 0;
-        $destDir   = public_path('images/products/gallery');
-
-        // Pastikan folder ada
+        $destDir = public_path('images/products/gallery');
         if (! is_dir($destDir)) {
             mkdir($destDir, 0755, true);
         }

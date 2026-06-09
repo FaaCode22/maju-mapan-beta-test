@@ -2,7 +2,7 @@
     <nav class="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-4 sm:px-6 lg:px-8">
         <a href="{{ route('home') }}" class="flex items-center gap-2 text-xl font-bold text-brand-700 sm:text-2xl">
             <!-- <span class="flex h-10 w-10 items-center justify-center rounded-xl bg-brand-500 text-white">A</span> -->
-            <img src="{{ asset('images/logo.png') }}" alt="{{ config('site.name') }}" class="h-14 w-30 rounded-xl object-contain">
+            <img src="{{ asset('images/logo-newww.png') }}" alt="{{ config('site.name') }}" class="h-14 w-30 rounded-xl object-contain">
             <!-- <span>{{ config('site.name') }}</span> ---buat buat teks navbar-->
         </a>
 
